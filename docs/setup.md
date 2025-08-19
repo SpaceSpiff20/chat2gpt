@@ -62,8 +62,7 @@ This bot is intended to be deployed on Google Cloud Functions, with audio data t
     - `IMAGE_STYLE`: This sets the image style for the DALL-E API. Must choose between "natural", or "vivid". Default: "natural".
     - `IMAGE_QUALITY`: This sets the image quality for the DALL-E API, can be "standard" or "hd". Default: "standard".
     - `API_URL`: This sets the API endpoint for the chat completions API. Default: "https://api.openai.com/v1/chat/completions".
-    - `ELEVENLABS_API_KEY`: Your ElevenLabs API key. Can be disabled by omitting this secret.
-    - `ELEVENLABS_MODEL_NAME`: ElevenLabs model you're using. Default: "eleven_multilingual_v2".
+    - `SPEECHIFY_API_KEY`: Your Speechify API key. Can be disabled by omitting this secret.
     - `GCS_BUCKET_NAME`: Your chosen name for the GCS bucket meant for TTS audio file storage.
     - `MODERATION`: Set to "False" to disable OpenAI's Moderation API. Default: "True".
 
