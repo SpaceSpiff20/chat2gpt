@@ -8,12 +8,13 @@
 </p>
 <hr/>
 
-**Chat²GPT** is a [ChatGPT](https://openai.com/chatgpt) chat bot for Google Chat 🤖💬. It's designed to amplify the experience in your Google Chat rooms by offering personalized user sessions for coherent dialogues, a manual reset capability, the power to generate images via OpenAI's [DALL·E 2 API](https://openai.com/dall-e-2), and dynamic interactions through mentions or direct messaging. Moreover, with the integration of ElevenLabs' [Text-to-Speech API](https://docs.elevenlabs.io/api-reference/text-to-speech), Chat²GPT now brings voice interactions, letting users convert textual prompts into audio. User input and text output is moderated with OpenAI's [Moderation API](https://platform.openai.com/docs/guides/moderation).
+**Chat²GPT** is a [ChatGPT](https://openai.com/chatgpt) chat bot for Google Chat 🤖💬. It's designed to amplify the experience in your Google Chat rooms by offering personalized user sessions for coherent dialogues, a manual reset capability, the power to generate images via OpenAI's [DALL·E 2 API](https://openai.com/dall-e-2), and dynamic interactions through mentions or direct messaging. Moreover, with the integration of Speechify's [Text-to-Speech API](https://speechify.com/blog/using-text-to-speech-api-for-python/), Chat²GPT now brings voice interactions, letting users convert textual prompts into audio. User input and text output is moderated with OpenAI's [Moderation API](https://platform.openai.com/docs/guides/moderation).
 
 ## 📖 Table of Contents
 - [📖 Table of Contents](#-table-of-contents)
 - [🛠️ Setup](#️-setup)
 - [👷 Development](#-development)
+  - [Setup](#setup)
   - [Docker 🐳](#docker-)
   - [Ubuntu 🤓](#ubuntu-)
   - [macOS 🍎](#macos-)
@@ -87,8 +88,7 @@ In your GitHub repository:
   - `IMAGE_QUALITY`: This sets the image quality for the DALL-E API, can be "standard" or "hd". Default: "standard".
   - `DALLE_MODEL`: This sets the DALL-E model for the DALL-E API. Must choose between "dall-e-2" or "dall-e-3". Default: "dall-e-2".
   - `API_URL`: This sets the API endpoint for the chat completions API. Default: "https://api.openai.com/v1/chat/completions".
-  - `ELEVENLABS_API_KEY`: Your ElevenLabs API key. Can be disabled by omitting this secret.
-  - `ELEVENLABS_MODEL_NAME`: ElevenLabs model you're using. Default: "eleven_multilingual_v2".
+  - `SPEECHIFY_API_KEY`: Your Speechify API key. Can be disabled by omitting this secret.
   - `GCS_BUCKET_NAME`: Your chosen name for the GCS bucket meant for TTS audio file storage.
   - `MODERATION`: Set to "False" to disable OpenAI's Moderation API. Default: "True".
 
@@ -312,7 +312,7 @@ The server should start successfully and can be accessed at [http://127.0.0.1:50
 
 - **Image Generation:** Want to visualize an idea? Use the `/image <prompt>` command. Based on the given prompt, which can range from a word to a paragraph, the bot leverages OpenAI's DALL·E 2 API to generate a relevant image.
 
-- **Text-to-Speech (TTS):** Utilize the power of Eleven Labs TTS API with the `/tts <voice> <prompt>` command. This command will return a voice response based on the given prompt in the specified voice. To see a list of available voices, use the `/voices` command.
+- **Text-to-Speech (TTS):** Utilize the power of Speechify TTS API with the `/tts <voice> <prompt>` command. This command will return a voice response based on the given prompt in the specified voice. To see a list of available voices, use the `/voices` command.
 
 - **Optimized Performance:** We prioritize a smooth experience. Before processing any message, the bot checks its size by counting its tokens. If found too lengthy, an error message suggests the user to condense their message. This ensures uninterrupted bot interactions without straining the system.
 
@@ -326,7 +326,7 @@ Use the following commands for Chat²GPT:
 
 - `/reset`: Reinitialize your session.
 - `/image <prompt>`: Generate an image using OpenAI's DALL·E 2 API.
-- `/tts <voice> <prompt>`: Get a voice response with ElevenLabs' TTS API.
+- `/tts <voice> <prompt>`: Get a voice response with Speechify's TTS API.
 - `/voices`: View available voices for TTS.
 - `/help`: Access accurate, up-to-date information from the docs.
 
@@ -346,7 +346,7 @@ Use the following commands for Chat²GPT:
 
 - **OpenAI's Commitment:** We use OpenAI's APIs, which, as per OpenAI's policy, don't use user inputs for model training. More details are on [OpenAI's official site](https://openai.com/policies/api-data-usage-policies).
 
-- **ElevenLabs' Commitment:** We use ElevenLabs' APIs, which, as per ElevenLabs' policy, don't use user inputs for model training. More details are on [ElevenLabs' official site](https://elevenlabs.io/terms)).
+- **Speechify's Commitment:** We use Speechify's APIs, which, as per Speechify's policy, don't use user inputs for model training. More details are on [Speechify's official site](https://speechify.com/terms).
 
 - **User Awareness:** Discussing sensitive topics? Exercise caution, especially in group settings. Chat²GPT doesn't log conversations, but your organization or platform might.
 
