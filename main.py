@@ -3,7 +3,7 @@ from flask import jsonify
 from simpleaichat import AIChat
 from env_loader import get_env
 from utils.openai_helper import initialize_openai, moderate_content, num_tokens_from_string, generate_image
-from utils.elevenlabs import get_voices_data, text_to_speech
+from utils.speechify import get_voices_data, text_to_speech
 from utils.misc import generate_unique_card_id, get_docs
 
 # Load environment variables
@@ -22,7 +22,7 @@ IMAGE_STYLE = get_env("IMAGE_STYLE")
 IMAGE_QUALITY = get_env("IMAGE_QUALITY")
 DALLE_MODEL = get_env("DALLE_MODEL")
 API_URL = get_env("API_URL")
-ELEVENLABS_API_KEY = get_env("ELEVENLABS_API_KEY")
+SPEECHIFY_API_KEY = get_env("SPEECHIFY_API_KEY")
 
 # Initialize OpenAI parameters
 params = initialize_openai(OPENAI_API_KEY, TEMPERATURE, MAX_TOKENS_OUTPUT)
@@ -143,7 +143,7 @@ def handle_message(user_id, user_message):
 
         # Check if the user input starts with /voice (assuming you meant /voices)
         elif user_message.strip().lower() == '/voices':
-            if not ELEVENLABS_API_KEY:
+            if not SPEECHIFY_API_KEY:
                 return jsonify({'text': 'This function is disabled.'})
             
             voices_data, error = get_voices_data()
@@ -158,7 +158,7 @@ def handle_message(user_id, user_message):
 
         # Check if the user input starts with /tts
         elif user_message.strip().lower().startswith('/tts'):
-            if not ELEVENLABS_API_KEY:
+            if not SPEECHIFY_API_KEY:
                 return jsonify({'text': 'This function is disabled.'})
             parts = user_message.split(' ')
             if len(parts) < 3:  # Checking for /tts, voice, and message
