@@ -89,17 +89,11 @@ SETTINGS = {
         "type": str,
         "description": "API endpoint for chat completions."
     },
-    "ELEVENLABS_API_KEY": {
+    "SPEECHIFY_API_KEY": {
         "default": None,
         "required": False,
         "type": str,
-        "description": "ElevenLabs Text-to-Speech API key."
-    },
-    "ELEVENLABS_MODEL_NAME": {
-        "default": "eleven_multilingual_v2",
-        "required": False,
-        "type": str,
-        "description": "Name of the ElevenLabs Text-to-Speech model."
+        "description": "Speechify Text-to-Speech API key."
     },
     "GCS_BUCKET_NAME": {
         "default": None,
